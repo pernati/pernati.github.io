@@ -1,0 +1,116 @@
+<html>
+<head>
+	<title>Photos </title>
+	<meta charset="UTF-8"> 
+	<style>
+	</style>
+</head>
+<body style="background-color:#000000" >
+	<div id="like">
+	</div>
+	<input type="text" id="Number" name="Number"><br>
+	<button onclick="submit();">Submit</button>
+	<button onclick="add();">Add to favorites</button>
+	<button onclick="get();">Get favorites</button>
+<!--               hidden();-->
+	<div id='text' style="color: #FFFFFF;"></div>
+	<div id="photo"></div>
+	<button onclick="prev()" style="float:left">Prev</button> 
+	<button onclick="next()" style="float:right">Next</button> 
+	<script>
+		x=1;
+			
+			var arr = [
+				"20160520_193359.jpg","20160520_193403.jpg","20160520_193409.jpg","20160520_193412.jpg","20160520_193422.jpg","20160520_193427.jpg","20160520_193437.jpg","20160520_193446.jpg","20160520_193455.jpg","20160520_193507.jpg","20160520_193518.jpg","20160520_193522.jpg","20160520_193528.jpg","20160520_193532.jpg","20160520_193539.jpg","20160520_193556.jpg","20160520_193600.jpg","20160520_193604.jpg","20160520_193607.jpg","20160520_193611.jpg","20160520_193616.jpg","20160520_193623.jpg","20160520_193631.jpg","20160520_193637.jpg","20160520_193649.jpg","20160520_193652.jpg","20160520_193659.jpg","20160520_193703.jpg","20160520_193707.jpg","20160520_193713.jpg","20160520_193724.jpg","20160520_193731.jpg","20160520_193737.jpg","20160520_193742.jpg","20160520_193746.jpg","20160520_193749.jpg","20160520_193759.jpg","20160520_193802.jpg","20160520_193809.jpg","20160520_193815.jpg","20160520_193821.jpg","20160520_193828.jpg","20160520_193836.jpg","20160520_193841.jpg","20160520_193847.jpg","20160520_193853.jpg","20160520_193855.jpg","20160520_193858.jpg","20160520_193901.jpg","20160520_193905.jpg","20160520_193912.jpg","20160520_193917.jpg","20160520_194013.jpg","20160520_194030.jpg","20160520_194035.jpg","20160520_194048.jpg","20160520_194052.jpg",
+			];
+			var favorites=[];
+			var names=[];
+		function add ()
+		{
+			favorites [favorites.length] = x;
+			names [names.length] = prompt ("Input the label of this photo.", arr [x]);
+			next();
+			prev();
+		}
+		function get ()
+		{
+			var s1 = "var favorites=[";
+			var s2 = "var names=[";
+			for (var i = 0 ; i < names.length ; i ++)
+			{
+				s1 = s1 + favorites[i] + ",";
+				s2 = s2 + "\"" + names[i] + "\",";
+			}
+			alert (s1 + "\b];\n" + s2 + "\b];");
+		}
+		document.getElementById('photo').innerHTML = getPhoto();
+		next();
+		prev();
+//		document.getElementById('Number').value = "0-"+(arr.length-securyty-1);
+		function prev()
+		{
+			x--;
+			if (x <= -1)
+				x = x + arr.length;
+			document.getElementById('photo').innerHTML = getPhoto();
+			var img = document.getElementById('shown img'); 
+			var width = img.clientWidth;
+			var height = img.clientHeight;
+			var new_height = 400.0;
+			var new_width = new_height * width / height;
+			img.style = "width: " + new_width + "px; height: " + new_height + "px;";
+			document.getElementById ('text').innerHTML = "<p> " + x + " -> " + arr [x] + "</p>";
+		}
+		function next()
+		{
+			x++;
+			if (x >= arr.length)
+				x = 0;
+			document.getElementById('photo').innerHTML = getPhoto();
+			var img = document.getElementById('shown img'); 
+			var width = img.clientWidth;
+			var height = img.clientHeight;
+			var new_height = 400.0;
+			var new_width = new_height * width / height;
+			img.style = "width: " + new_width + "px; height: " + new_height + "px;";
+			document.getElementById ('text').innerHTML = "<p> " + x + " -> " + arr [x] + "</p>";
+		}
+		function submit ()
+		{
+			x = parseInt (document.getElementById("Number").value);
+			prev ();
+			next ();
+		}
+		function my_update ()
+		{
+			var like = document.getElementById ("like");
+			var s = "";
+			for (var i = 0 ; i < favorites.length ; i ++)
+			{
+					s = s + "<button onclick=\"x=" + favorites[i] + ";next();prev();\">" + names[i] + "</button>\n";
+			}
+			like.innerHTML = s;
+		}
+		window.addEventListener("keydown", function(i)
+		{
+			if(i.keyCode == 37)
+			{
+				prev();
+			}
+			if(i.keyCode == 39)
+			{
+				next();
+			}
+			my_update ();
+//			document.getElementById('Number').value = "0-"+(arr.length-securyty*hide-1);
+		}, false);
+		function getPhoto()
+		{
+			var asd = '<img id=\"shown img\" onclick=\"next ();\" src="/Kletki/';
+			asd += arr[x] + '.jpg';
+			asd += '"></img>';
+			return asd;
+		}
+	</script>
+</body>
+</html>
