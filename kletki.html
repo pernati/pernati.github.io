@@ -3,7 +3,7 @@
 			<link rel="icon" type="image/jpg" href="https://raw.githubusercontent.com/Alex-Tsvetanov/Catalan-Numbers-Project-for-MITE-2016/master/imgblog/alex_tsvetanov.jpg">
 			<meta http-equiv="content-type" content="text/html; charset=windows-1251">
 			<meta charset="windows-1251">
-			<title></title>
+			<title>Клетки</title>
 			
 			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 			<link rel="stylesheet" href="https://Alex-Tsvetanov.github.io/dark.css">
@@ -15,8 +15,7 @@
 		<button onclick="submit();">Submit</button>
 		<button onclick="add();">Add to favorites</button>
 		<button onclick="get();">Get favorites</button>
-	<!--               hidden();-->
-		<div id='text' style="color: #FFFFFF;"></div>
+		<div id='text'></div>
 		<div id="photo"></div>
 		<button onclick="prev()" style="float:left">Prev</button> 
 		<button onclick="next()" style="float:right">Next</button> 
@@ -49,7 +48,6 @@
 			document.getElementById('photo').innerHTML = getPhoto();
 			next();
 			prev();
-	//		document.getElementById('Number').value = "0-"+(arr.length-securyty-1);
 			function prev()
 			{
 				x--;
@@ -105,7 +103,6 @@
 					next();
 				}
 				my_update ();
-	//			document.getElementById('Number').value = "0-"+(arr.length-securyty*hide-1);
 			}, false);
 			function getPhoto()
 			{
