@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="icon" type="image/jpg" href="https://raw.githubusercontent.com/Alex-Tsvetanov/Catalan-Numbers-Project-for-MITE-2016/master/imgblog/alex_tsvetanov.jpg">
+		<meta http-equiv="content-type" content="text/html; charset=windows-1251">
+		<meta charset="windows-1251">
+		<title></title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<script src="http://www.w3schools.com/lib/w3data.js"></script>
+	</head>
+	<body>
+		1. <a href="#oburudvane">Обурудване</a><br>
+			<div id="oburudvane" w3-include-html="http://pernati.github.io/oburudvane.html"></div>
+		2. <a href="#givotni">Животни</a><br>
+			<div id="givotni" w3-include-html="http://pernati.github.io/givotni.html"></div>
+
+		<script>
+		w3IncludeHTML();
+		</script>
+
+		<link rel="stylesheet" href="http://alex-tsvetanov.github.io/dark.css">
+
+		За контакт:
+		<br />
+		<ul>
+		<li><a href="tel:+359 88 857 3047">Мобилен телефон</a></li>
+		</ul>
+
+			<img src="http://alex-tsvetanov.github.io/powered.png" style="position:fixed;max-width:15%;max-height:30%;right:5%;bottom:5%">
+
+			<h2 id="os">You are using GNU/Linux</h2>
+			<script>
+				(function(){
+					var element = document.getElementById('os');
+					var platform = navigator.platform;
+
+					if(platform.indexOf('Linux') === 0)
+						platform = 'GNU/Linux';
+					else if(platform.indexOf('Win') === 0)
+						platform = 'Windows. And you are ...';
+					else if(platform.indexOf('Symbian') === 0)
+						platform = 'Symbian';
+					else if(platform.indexOf('i') === 0)
+						platform = 'iFail';
+
+					element.innerHTML = 'You are using ' + platform;
+				})();
+			</script>
+		</link>
+		</link>
+	</body>
+</html>
